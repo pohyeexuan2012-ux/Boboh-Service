@@ -355,7 +355,11 @@ if (!paid || !policy || !paid.checked || !policy.checked) {
 }
 
   makeOrder();
-  const message = document.getElementById('result').value;
+  const message =
+  document.getElementById('result').value +
+  '\n\n📸 PAYMENT RECEIPT REQUIRED' +
+  '\nPlease attach your TNG eWallet payment receipt in this WhatsApp chat.' +
+  '\nYour order will only be confirmed after payment verification.';
 
   if (!message.trim()) {
     alert('Please select a service first!');
