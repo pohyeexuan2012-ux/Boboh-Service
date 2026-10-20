@@ -265,7 +265,11 @@ function renderCart() {
   const total = cart.reduce((sum,x)=>sum+x.price,0);
   document.getElementById('total').textContent =
     'Total: RM' + total.toFixed(2) + '*';
+  
+updatePaymentTotal();
+
 }
+
 
 function removeItem(i) {
   cart.splice(i,1);
@@ -328,6 +332,18 @@ function orderWhatsApp() {
     encodeURIComponent(message),
     '_blank'
   );
+}
+
+function updatePaymentTotal() {
+  const total = cart.reduce(
+    (sum, item) => sum + Number(item.price), 0
+  );
+
+  const display = document.getElementById('paymentTotal');
+
+  if (display) {
+    display.textContent = 'RM ' + total.toFixed(2);
+  }
 }
 
 </script>
