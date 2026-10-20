@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POH CINA CHING CHONG SERVICE</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101014;
+  color: white;
+}
+header {
+  background: #1b1b22;
+  text-align: center;
+  padding: 35px 16px;
+  border-bottom: 3px solid #f5c451;
+}
+header h1 { color: #f5c451; }
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 15px;
+  background: #25252c;
+}
+nav a { color: white; text-decoration: none; }
+section { padding: 24px 16px; max-width: 1000px; margin: auto; }
+h2 { color: #f5c451; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 15px;
+}
+.card {
+  background: #202027;
+  border: 1px solid #41414b;
+  border-radius: 14px;
+  padding: 18px;
+}
+.card h3 { margin-top: 5px; }
+.price { color: #f5c451; font-size: 22px; font-weight: bold; }
+.stars { color: #f5c451; }
+.note { color: #c8c8d0; font-size: 14px; }
+button {
+  padding: 11px 15px;
+  background: #f5c451;
+  color: #17130a;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin: 8px 0 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background: #17171c;
+  color: white;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #202027;
+  color: #ccc;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>POH CINA CHING CHONG SERVICE</h1>
+  <p>🧺 Laundry • 👔 Ironing • 📦 Delivery</p>
+  <p>🟢 Available every day | Closes at 11:45 (confirm AM/PM)</p>
+</header>
+
+<nav>
+  <a href="#baju">Baju</a>
+  <a href="#other">Other Services</a>
+  <a href="#delivery">POHPANDA</a>
+  <a href="#combo">Combos</a>
+  <a href="#order">Order</a>
+</nav>
+
+<section id="baju">
+<h2>👔 BAJU SERVICES</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Iron School Shirt</h3>
+    <p class="price">RM4.00</p>
+    <p class="stars">★★★★★</p>
+    <p class="note">If burnt, free treatment. Add RM0.50 for a line (crease).</p>
+    <button onclick="add('Iron School Shirt',4)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Iron Baju Melayu</h3>
+    <p class="price">RM3.50</p>
+    <p class="stars">★★★☆☆</p>
+    <button onclick="add('Iron Baju Melayu',3.5)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Basuh Baju</h3>
+    <p class="price">RM2.00</p>
+    <p class="stars">★★★★☆</p>
+    <button onclick="add('Basuh Baju',2)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Gantung Baju</h3>
+    <p class="price">RM2.00</p>
+    <p class="stars">★★★★☆</p>
+    <p class="note">Prepare your own hanger. Use my hanger: +RM1.</p>
+    <button onclick="add('Gantung Baju',2)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Dry Baju (Dryer Card)</h3>
+    <p class="price">RM4.50 / tap</p>
+    <p class="stars">★★★★★</p>
+    <button onclick="add('Dry Baju (Dryer Card)',4.5)">Order</button>
+  </div>
+</div>
+</section>
+
+<section id="other">
+<h2>🛠️ OTHER SERVICES</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Help Buy Vending Machine</h3>
+    <p class="price">Item price + RM0.10</p>
+    <p class="stars">★★★★★</p>
+    <p class="note">PM before 7:45. Restock Tuesday, Thursday and Saturday.</p>
+    <button onclick="add('Help Buy Vending Machine',0.1)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Gerakkan Locker 🔒</h3>
+    <p class="price">RM4.00</p>
+    <button onclick="add('Gerakkan Locker',4)">Order</button>
+  </div>
+</div>
+</section>
+
+<section id="delivery">
+<h2>🐼 POHPANDA DELIVERY</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Guard House → Apartment</h3>
+    <p class="price">RM8.00</p>
+    <p class="stars">★★★★★</p>
+    <p class="note">Saturday only, before sport.</p>
+    <button onclick="add('POHPANDA: Guard House to Apartment',8)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Guard House → Cafe</h3>
+    <p class="price">RM3.00</p>
+    <p class="stars">★★★★★</p>
+    <p class="note">Saturday only, before sport.</p>
+    <button onclick="add('POHPANDA: Guard House to Cafe',3)">Order</button>
+  </div>
+</div>
+</section>
+
+<section id="combo">
+<h2>🔥 COMBO PACKAGES</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Full Set: Wash + Dryer + Iron</h3>
+    <p class="price">RM7.00</p>
+    <p class="stars">★★★★☆</p>
+    <p class="note">Find your own dryer card. Use mine: +RM4.50 per tap. Includes trouser crease.</p>
+    <button onclick="add('Full Set: Wash + Dryer + Iron',7)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Full Set: Wash + Hanger + Iron</h3>
+    <p class="price">RM10.00</p>
+    <p class="stars">★★★★☆</p>
+    <p class="note">Includes trouser crease.</p>
+    <button onclick="add('Full Set: Wash + Hanger + Iron',10)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Half Set: Wash + Hanger</h3>
+    <p class="price">RM3.00</p>
+    <p class="stars">★★★★★</p>
+    <button onclick="add('Half Set: Wash + Hanger',3)">Order</button>
+  </div>
+  <div class="card">
+    <h3>Half Set: Wash + Dryer</h3>
+    <p class="price">RM3.00</p>
+    <p class="stars">★★★☆☆</p>
+    <p class="note">Find your own dryer card. Use mine: +RM4.50 per tap.</p>
+    <button onclick="add('Half Set: Wash + Dryer',3)">Order</button>
+  </div>
+</div>
+</section>
+
+<section id="order">
+<h2>📝 MAKE AN ORDER</h2>
+<div class="card">
+  <label for="customer">Your name</label>
+  <input id="customer" placeholder="Enter your name">
+
+  <label for="location">Room / location</label>
+  <input id="location" placeholder="Enter room or pickup point">
+
+  <label for="details">Extra details</label>
+  <textarea id="details" placeholder="Quantity, hanger, dryer card, etc."></textarea>
+
+  <h3>Your selected services</h3>
+  <div id="cart">No services selected yet.</div>
+  <p id="total" class="price">Total: RM0.00*</p>
+  <p class="note">*Vending-machine item prices and optional extras are not included in this estimate.</p>
+
+  <button onclick="makeOrder()">Create Order Message</button>
+  <textarea id="result" placeholder="Your order message will appear here"></textarea>
+  <button onclick="copyOrder()">Copy Order Message</button>
+</div>
+</section>
+
+<footer>
+  <h3>POH CINA CHING CHONG SERVICE</h3>
+  <p>OTHER SERVICES COMING SOON ✨</p>
+</footer>
+
+<script>
+let cart = [];
+
+function add(name, price) {
+  cart.push({name, price});
+  renderCart();
+  document.getElementById('order').scrollIntoView({behavior:'smooth'});
+}
+
+function renderCart() {
+  const cartBox = document.getElementById('cart');
+  if (!cart.length) {
+    cartBox.textContent = 'No services selected yet.';
+  } else {
+    cartBox.innerHTML = cart.map((x,i) =>
+      `<p>${i+1}. ${x.name} — RM${x.price.toFixed(2)}
+      <button onclick="removeItem(${i})">Remove</button></p>`
+    ).join('');
+  }
+  const total = cart.reduce((sum,x)=>sum+x.price,0);
+  document.getElementById('total').textContent =
+    'Total: RM' + total.toFixed(2) + '*';
+}
+
+function removeItem(i) {
+  cart.splice(i,1);
+  renderCart();
+}
+
+function makeOrder() {
+  const name = document.getElementById('customer').value.trim();
+  const location = document.getElementById('location').value.trim();
+  const details = document.getElementById('details').value.trim();
+
+  if (!cart.length) {
+    alert('Please select at least one service.');
+    return;
+  }
+
+  const lines = [
+    'POH CINA CHING CHONG SERVICE — ORDER REQUEST',
+    'Name: ' + (name || 'Not provided'),
+    'Location: ' + (location || 'Not provided'),
+    '',
+    ...cart.map((x,i)=>`${i+1}. ${x.name} — RM${x.price.toFixed(2)}`),
+    '',
+    'Estimated listed total: RM' +
+      cart.reduce((s,x)=>s+x.price,0).toFixed(2),
+    'Extra details: ' + (details || 'None'),
+    '',
+    'Please confirm availability and final price. Thank you!'
+  ];
+
+  document.getElementById('result').value = lines.join('\n');
+}
+
+async function copyOrder() {
+  const result = document.getElementById('result');
+  if (!result.value) {
+    makeOrder();
+    if (!result.value) return;
+  }
+  result.select();
+  try {
+    await navigator.clipboard.writeText(result.value);
+    alert('Order message copied!');
+  } catch(e) {
+    alert('Select the message and copy it manually.');
+  }
+}
+</script>
+</body>
+</html>
