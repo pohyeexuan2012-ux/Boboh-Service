@@ -219,6 +219,27 @@ footer {
   <textarea id="result" placeholder="Your order message will appear here"></textarea>
   <button onclick="copyOrder()">Copy Order Message</button>
   
+<div style="margin:20px 0;">
+  <h3>💰 Payment Confirmation</h3>
+
+  <label>
+    <input type="checkbox" id="paidConfirm">
+    I confirm that I have paid the full amount.
+  </label>
+
+  <p style="font-size:14px;">
+    Please send your payment receipt in WhatsApp.
+    Your order will only be confirmed after
+    payment verification.
+  </p>
+
+  <label>
+    <input type="checkbox" id="policyConfirm">
+    I agree that confirmed orders are non-refundable,
+    except where required by law.
+  </label>
+</div>
+
 <button type="button" onclick="orderWhatsApp()">
   📱 Order via WhatsApp
 </button>
@@ -324,6 +345,15 @@ async function copyOrder() {
 }
 
 function orderWhatsApp() {
+  
+const paid = document.getElementById('paidConfirm');
+const policy = document.getElementById('policyConfirm');
+
+if (!paid || !policy || !paid.checked || !policy.checked) {
+  alert('Please confirm payment and agree to the order policy first.');
+  return;
+}
+
   makeOrder();
   const message = document.getElementById('result').value;
 
